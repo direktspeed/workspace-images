@@ -100,7 +100,7 @@ ENV INFOPATH="$INFOPATH:/home/linuxbrew/.linuxbrew/share/info"
 RUN sudo apt-get remove -y cmake && brew install cmake
 
 ### Go ###
-ENV GO_VERSION=1.12 \
+ENV GO_VERSION=1.13 \
     GOPATH=$HOME/go-packages \
     GOROOT=$HOME/go
 ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
