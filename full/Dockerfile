@@ -34,12 +34,12 @@ RUN { echo && echo "PS1='\[\e]0;\u \w\a\]\[\033[01;32m\]\u\[\033[00m\] \[\033[01
 RUN curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - \
     && apt-add-repository -yu "deb http://apt.llvm.org/disco/ llvm-toolchain-disco main" \
     && apt-get install -yq \
-        clang-format \
-        clang-tidy \
-        clang-tools \
-        clangd \
+        clang-format/llvm-toolchain-disco \
+        clang-tidy/llvm-toolchain-disco \
+        clang-tools/llvm-toolchain-disco \
+        clangd/llvm-toolchain-disco \
+        lld/llvm-toolchain-disco \
         gdb \
-        lld \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 ### Apache and Nginx ###
