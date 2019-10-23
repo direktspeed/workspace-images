@@ -9,7 +9,15 @@ FROM full-vnc
 # apt-get install paprefs
 # pulseaudio -k && pulseaudio --start
 ## Method 2 console
-# apt-get install pulseaudio dbus-x11
+apt-get install pulseaudio dbus-x11
 # /etc/pulse/default.pa
 # load-module module-tunnel-sink-new server=192.168.0.1 sink_name=Remote channels=2 rate=44100
 # We need a way to start pulse audio
+# Add VNC startup script
+COPY start-pulseaudio.sh /usr/bin/
+RUN chmod +x /usr/bin/start-pulseaudio.sh
+RUN addgroup theia audio
+# This is a bit of a hack. At the moment we have no means of starting background
+# tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the PulseAudio
+# server is running, and if not starts pulseaudio.
+#RUN echo "[ ! -e /tmp/.X0-lock ] && (/usr/bin/start-vnc-session.sh &> /tmp/display-\${DISPLAY}.log)" >> ~/.bashrc
