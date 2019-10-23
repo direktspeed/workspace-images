@@ -1,8 +1,6 @@
 How to carry audio over SSH?
 ----------------------------
 
-Stolen answer from [grawity][1] in [SuperUsers][2]:
-
 > The easy way: Run `paprefs`, go to *Network Server* and check *Enable
 > network access to local sound devices*.
 
